@@ -8,7 +8,7 @@ var gulp       = require('gulp'),
     concat     = require('gulp-concat'),
     imagemin   = require('gulp-imagemin'),
     size       = require('gulp-size'),
-    htmlmin    = require("gulp-htmlmin");
+    // htmlmin    = require("gulp-htmlmin");
 
     //optional
     //sprite   = require('gulp-sprite')
@@ -41,14 +41,14 @@ gulp.task('sass', function(cb) {
 
 
 gulp.task('compile-css', ['sass'], function() {
-  return gulp.src(['dev/source/normalize.min.css','dev/source/custom.min.css'])
-    .pipe(concat('production.min.css'))
+  return gulp.src(['dev/source/pure-min.css','dev/source/custom.min.css'])
+    .pipe(concat('production-min.css'))
     .pipe(gulp.dest('public/css'))
 });
 
 gulp.task('compile-js', ['scripts'], function() {
   return gulp.src(['dev/source/underscore-min.js','dev/source/backbone-min.js','dev/source/custom.min.js', 'dev/source/googleanalytics.min.js'])
-    .pipe(concat('production.min.js'))
+    .pipe(concat('production-min.js'))
     .pipe(gulp.dest('public/js'))
 });
 

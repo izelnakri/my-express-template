@@ -1,7 +1,8 @@
 require "coffee-script"
 require "colors"
 
-app = require "./config"
+app = require "./settings"
+io = require "./sockets"
 db = require './models'
 
 app.get("/", (req, res) ->
