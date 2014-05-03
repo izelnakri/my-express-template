@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html class="no-js">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>Title</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <!-- add og:title -->
+        <meta property="og:title" content="" />
+        <meta property="og:type" content="website" />
+        <!-- change website url -->
+        <meta property="og:url" content="http:/example.com" />
+        <meta property="og:image" content="favicon.ico" />
+        <!-- add site_name -->
+        <meta property="og:site_name" content="" />
+        <!-- other open graph tags(http://ogp.me/); article, video etc. -->
+
+        <meta name="twitter:card" content="summary">
+        <!-- change to the twitter handle -->
+        <meta name="twitter:site" content="@twitter">
+        <meta name="twitter:creator" content="@izelnakri">
+        <!--add twitter:title -->
+        <meta name="twitter:title" content="">
+        <!--add description max 200 chars -->
+        <meta name="twitter:description" content="">
+        <!-- optional: twitter:image and appstores: https://dev.twitter.com/docs/cards/markup-reference -->
+
+        <!-- add website url -->
+        <meta property="al:web:url" content="http://www.example.com/s" />
+        <!-- optional: appstore applinks, then should_fallback to false: http://applinks.org/documentation -->
+
+        <!-- set up pingback server(check webmention.io), change endpoint-->
+        <link rel="pingback" href="http://webmention.io/webmention?forward=http://example.com/endpoint">
+        
+        <link rel="stylesheet" href="css/production.min.css">
+
+        <script src="js/modernizr.min.js"></script>
+    </head>
+    <body>
+        <!--[if lt IE 10]>
+            <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+        <![endif]-->
+
+            <header class="wrapper">
+                <h1 id="title">h1.title</h1>
+                <nav>
+                    <ul>
+                        <li><a href="#">nav ul li a</a></li>
+                        <li><a href="#">nav ul li a</a></li>
+                        <li><a href="#">nav ul li a</a></li>
+                    </ul>
+                </nav>
+            </header>
+
+            <div class="main wrapper">
+                <% content %>    
+            </div>
+
+            <footer class="wrapper">
+                <h3>footer</h3>
+            </footer>
+        <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+        <script>window.jQuery || document.write('<script src="js/jquery.min.js"><\/script>')</script>
+        <script src="js/lib.min.js"></script>
+        <script src="js/production.min.js"></script>
+    </body>
+</html>
