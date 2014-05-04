@@ -1,4 +1,5 @@
 var gulp       = require('gulp'),
+    nodemon    = require('gulp-nodemon'),
     coffeelint = require('gulp-coffeelint'),
     coffee     = require('gulp-coffee'),
     uglify     = require('gulp-uglify'),
@@ -7,7 +8,7 @@ var gulp       = require('gulp'),
     minifyCSS  = require('gulp-minify-css'),
     concat     = require('gulp-concat'),
     imagemin   = require('gulp-imagemin'),
-    size       = require('gulp-size'),
+    size       = require('gulp-size')
     // htmlmin    = require("gulp-htmlmin");
 
     //optional
@@ -16,7 +17,7 @@ var gulp       = require('gulp'),
 var paths = {
   scripts: ['dev/coffee/base.coffee', 'dev/coffee/collection.coffee', 'dev/coffee/view.coffee'],
   sass: 'dev/sass/main.sass'
-  };
+};
 
 //define the sequence
 gulp.task('scripts', function() {
@@ -57,7 +58,13 @@ gulp.task('watch', function () {
   gulp.watch(paths.sass, ['sass', 'compile-css']);
 });
 
-gulp.task('default', ['scripts', 'sass', 'compile-css', 'compile-js', 'watch']);
+gulp.task('compile', ['scripts', 'sass', 'compile-css', 'compile-js']);
+
+gulp.task('develop', function() {
+  nodemon({ script: "server.coffee" })
+});
+
+gulp.task('default', ['watch', 'develop']);
 
 
 /** gulp plugins to consider:

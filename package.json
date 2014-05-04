@@ -23,7 +23,8 @@
     "request": "~2.34.0",
     "sequelize": "~1.7.3",
     "socket.io": "~0.9.16",
-    "morgan": "^1.0.0"
+    "morgan": "^1.0.0",
+    "gulp-nodemon": "^1.0.2"
   },
   "devDependencies": {
     "gulp-util": "~2.2.14",
@@ -38,5 +39,8 @@
     "gulp-imagemin": "~0.1.5",
     "gulp-ruby-sass": "~0.3.0",
     "gulp-htmlmin": "~0.1.2"
+  },
+  "scripts": {
+    "start": "coffee server.coffee"
   }
 }
