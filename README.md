@@ -4,6 +4,8 @@
 
 - add db defaults for deployment
 
+- test websockets on heroku
+
 - add migration
 
 - model lifecycle tests
