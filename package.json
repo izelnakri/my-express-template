@@ -15,7 +15,6 @@
     "hiredis": "^0.1.16",
     "lodash": "~2.4.1",
     "newrelic": "~1.3.0",
-    "nodemon": "~1.0.14",
     "passport": "~0.2.0",
     "passport-facebook": "~1.0.3",
     "pg": "~3.0.3",
@@ -39,7 +38,8 @@
     "gulp-autoprefixer": "0.0.6",
     "gulp-imagemin": "~0.1.5",
     "gulp-ruby-sass": "~0.3.0",
-    "gulp-htmlmin": "~0.1.2"
+    "gulp-htmlmin": "~0.1.2",
+    "nodemon": "~1.0.14"
   },
   "scripts": {
     "start": "coffee server.coffee"

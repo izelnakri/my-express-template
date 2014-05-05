@@ -6,6 +6,7 @@ db.sequelize.sync().success(() ->
     console.log('APPLICATION STARTED ON PORT %d'.green, process.env.PORT || 3000)
 
   io = module.exports = require('socket.io').listen(server, {log: false})
+  #add production options as well
   io.configure('development', () ->
     io.enable('browser client minification')
     io.enable('browser client etag')
