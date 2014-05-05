@@ -1,9 +1,3 @@
-- push to heroku to see if its working
-
-- add port defaults for deployment
-
-- add db defaults for deployment
-
 - test websockets on heroku
 
 - add migration
