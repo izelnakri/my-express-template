@@ -13,4 +13,4 @@ db.sequelize.sync().complete (err) ->
     io.enable('browser client etag')
     io.enable('browser client gzip')
   )
-)
+
