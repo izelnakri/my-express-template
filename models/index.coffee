@@ -3,7 +3,7 @@ path = require("path")
 Sequelize = require("sequelize")
 
 #ADD Database name
-sequelize = new Sequelize("testapp", "izelnakri", null, {dialect: "postgres",port: 5432})
+sequelize = new Sequelize(process.env.DATABASE_URL || "testapp", "root", null, {dialect: "postgres",port: 5432})
 
 ## mounting models & associations
 db = {}
