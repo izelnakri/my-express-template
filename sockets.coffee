@@ -1,7 +1,8 @@
 app = require "./settings"
 db = require "./models"
 
-db.sequelize.sync().success(() ->
+db.sequelize.sync().complete (err) ->
+  throw err if err
   server = app.listen (process.env.PORT || 8000), () -> 
     console.log('APPLICATION STARTED ON PORT %d'.green, process.env.PORT || 8000)
 
