@@ -1,7 +1,7 @@
 express = require "express"
-passport = require 'passport'
+passport = require "passport"
 compress = require "compression"
-morgan = require 'morgan'
+morgan = require "morgan"
 
 app = module.exports = express()
 

@@ -3,7 +3,7 @@ require "colors"
 
 app = require "./settings"
 io = require "./sockets"
-db = require './models'
+db = require "./models"
 
 app.get("/", (req, res) ->
   res.render "example"

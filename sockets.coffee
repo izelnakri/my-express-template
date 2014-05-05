@@ -1,5 +1,5 @@
-app = require("./settings")
-db = require './models'
+app = require "./settings"
+db = require "./models"
 
 db.sequelize.sync().success(() ->
   server = app.listen (process.env.PORT || 3000), () -> 
