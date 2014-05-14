@@ -1,4 +1,4 @@
-- add socket.io default url+port to the front-end
+- add socket.io default url+port to the front-end (create SOCKET_URL process.env) fallbacks to localhost:port
 
 - test websockets on heroku
 
