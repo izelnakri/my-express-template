@@ -32,7 +32,7 @@ gulp.task('scripts', function() {
 // define the sequence
 gulp.task('sass', function(cb) {
   return gulp.src(paths.sass) //path.sass array specifies the order of concat
-    .pipe(sass({noCache: true}))
+    .pipe(sass({compass: true, cacheLocation: "dev/source/.sass-cache"}))
     .pipe(prefix())
     .pipe(minifyCSS())
     .pipe(concat('custom.min.css'))
@@ -43,13 +43,13 @@ gulp.task('sass', function(cb) {
 
 gulp.task('compile-css', ['sass'], function() {
   return gulp.src(['dev/source/pure-min.css','dev/source/custom.min.css'])
-    .pipe(concat('production-min.css'))
+    .pipe(concat('production.min.css'))
     .pipe(gulp.dest('public/css'))
 });
 
 gulp.task('compile-js', ['scripts'], function() {
   return gulp.src(['dev/source/underscore-min.js','dev/source/backbone-min.js','dev/source/custom.min.js', 'dev/source/googleanalytics.min.js'])
-    .pipe(concat('production-min.js'))
+    .pipe(concat('production.min.js'))
     .pipe(gulp.dest('public/js'))
 });
 
@@ -61,7 +61,7 @@ gulp.task('watch', function () {
 gulp.task('compile', ['scripts', 'sass', 'compile-css', 'compile-js']);
 
 gulp.task('develop', function() {
-  nodemon({ script: "server.coffee" })
+  nodemon({ script: "server.coffee",  ignore: ['node_modules/**', 'tmp/**']})
 });
 
 gulp.task('default', ['watch', 'develop']);
