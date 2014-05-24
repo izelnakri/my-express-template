@@ -35,8 +35,8 @@ gulp.task('sass', function(cb) {
     .pipe(sass({compass: true, cacheLocation: "dev/source/.sass-cache"}))
     .pipe(prefix())
     .pipe(minifyCSS())
-    .pipe(concat('custom.min.css'))
-    .pipe(gulp.dest('dev/source'))
+    .pipe(concat('production.min.css'))
+    .pipe(gulp.dest('public/js'))
     cb(err)
 });
 
@@ -48,8 +48,8 @@ gulp.task('compile-css', ['sass'], function() {
 });
 
 gulp.task('compile-js', ['scripts'], function() {
-  return gulp.src(['dev/source/underscore-min.js','dev/source/backbone-min.js','dev/source/custom.min.js', 'dev/source/googleanalytics.min.js'])
-    .pipe(concat('production.min.js'))
+  return gulp.src(['dev/source/lodash.min.js','dev/source/backbone-min.js', 'dev/source/cookie.min.js','dev/source/googleanalytics.min.js'])
+    .pipe(concat('lib.min.js'))
     .pipe(gulp.dest('public/js'))
 });
 
