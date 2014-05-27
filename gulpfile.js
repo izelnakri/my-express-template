@@ -29,17 +29,22 @@ gulp.task('scripts', function() {
     cb(err)
 });
 
+gulp.task('compile-js',['scripts'], function() {
+  return gulp.src(['dev/source/backbone-min.js','dev/source/custom.min.js'])
+    .pipe(concat('production.min.js'))
+    .pipe(gulp.dest('public/js'))
+})
+
 // define the sequence
 gulp.task('sass', function(cb) {
   return gulp.src(paths.sass) //path.sass array specifies the order of concat
     .pipe(sass({compass: true, cacheLocation: "dev/source/.sass-cache"}))
     .pipe(prefix())
     .pipe(minifyCSS())
-    .pipe(concat('production.min.css'))
-    .pipe(gulp.dest('public/js'))
+    .pipe(concat('custom.min.css'))
+    .pipe(gulp.dest('dev/source'))
     cb(err)
 });
-
 
 gulp.task('compile-css', ['sass'], function() {
   return gulp.src(['dev/source/pure-min.css','dev/source/custom.min.css'])
@@ -47,24 +52,24 @@ gulp.task('compile-css', ['sass'], function() {
     .pipe(gulp.dest('public/css'))
 });
 
-gulp.task('compile-js', ['scripts'], function() {
-  return gulp.src(['dev/source/lodash.min.js','dev/source/backbone-min.js', 'dev/source/cookie.min.js','dev/source/googleanalytics.min.js'])
+gulp.task('compile-js-lib', ['scripts', 'compile-js'], function() {
+  return gulp.src(['dev/source/lodash.min.js','dev/source/big.min.js', 'dev/source/cookie.min.js','dev/source/googleanalytics.min.js'])
     .pipe(concat('lib.min.js'))
     .pipe(gulp.dest('public/js'))
 });
 
 gulp.task('watch', function () {
-  gulp.watch(paths.scripts, ['scripts', 'compile-js']);
+  gulp.watch(paths.scripts, ['scripts','compile-js-lib','compile-js']);
   gulp.watch(paths.sass, ['sass', 'compile-css']);
 });
 
-gulp.task('compile', ['scripts', 'sass', 'compile-css', 'compile-js']);
+gulp.task('compile', ['scripts', 'sass', 'compile-css', 'compile-js-lib', 'compile-js']);
 
 gulp.task('develop', function() {
   nodemon({ script: "server.coffee",  ignore: ['node_modules/**', 'tmp/**']})
 });
 
-gulp.task('default', ['watch', 'develop']);
+gulp.task('default', ['compile', 'watch', 'develop']);
 
 
 /** gulp plugins to consider:
