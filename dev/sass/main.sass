@@ -1,17 +1,37 @@
-@import "compass"
 @import "_variables.sass"
 @import "_mixins.sass"
 @import "_defaults.sass"
 
-//Normalize?!?
+@import "compass"
+@import "susyone"
+
+$media-layout: 12
+// $column-width: 4em
+$gutter-width: 0em
+$grid-padding: $gutter-width
+
+//Add icon sprite in svg, find a way to simply color the svgs
 
 body
   font: 16px / 26px Helvetica, Helvetica Neue, Arial
 
-.wrapper
-  width: 90%
-  margin: 0 5%
-  
+header
+  +span-columns(12,12)
+  display: block
+
+#title
+  +span-columns(1, 12)
+  +hover-link
+  color: orange
+nav
+  +span-columns(11, 12)
+  li
+    float: right
+    display: inline-block
+
+footer
+  +span-columns(12,12)
+
 // phones
 // @media only screen and (min-width: 480px)
 
@@ -23,17 +43,6 @@ body
 
 
 @import "_print.sass"
-
-
-
-
-
-
-
-
-
-
-
 
 
 //LAYOUT WITH FLEXBOX

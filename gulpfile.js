@@ -38,7 +38,7 @@ gulp.task('compile-js',['scripts'], function() {
 // define the sequence
 gulp.task('sass', function(cb) {
   return gulp.src(paths.sass) //path.sass array specifies the order of concat
-    .pipe(sass({compass: true, cacheLocation: "dev/source/.sass-cache"}))
+    .pipe(sass({sourcemap: true, require: ["susy"], compass: true,cacheLocation: "dev/source/.sass-cache"}).on("error", function(err) {console.log(err)}))
     .pipe(prefix())
     .pipe(minifyCSS())
     .pipe(concat('custom.min.css'))
